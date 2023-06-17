@@ -6,13 +6,13 @@ let startGame;
 let scoreGame;
 
 let board;
-let boardWidth = 340;
-let boardHeight = 600;
+let boardWidth = 350;
+let boardHeight = 650;
 let context;
 
 //bird
-let birdWidth = 40; //width/height ratio = 408/228 = 17/12
-let birdHeight = 40;
+let birdWidth = 30; //width/height ratio = 408/228 = 17/12
+let birdHeight = 30;
 let birdX = boardWidth/8;
 let birdY = boardHeight/3;
 let birdImg;
@@ -45,12 +45,10 @@ let gifImg;
 //physics
 let velocityX = -2.15;
 let velocityY = 0; //bird jump speed
-let gravity = 0.4;
+let gravity = 0.3;
 
 let gameOver = true;
 let score = 0;
-
-
 
 window.onload = function() {
     board = document.getElementById("board");
@@ -68,7 +66,8 @@ window.onload = function() {
 
     //load images
     birdImg = new Image();
-    birdImg.src = "./pikachu.png";
+    // birdImg.src = "./pikachu.png";
+    birdImg.src = "./flappybird.png";
     birdImg.onload = function() {
         context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
     }
@@ -151,7 +150,6 @@ function placeGift() {
         return;
     }
     let randomPipeY =  Math.random()*(giftY);
-    console.log('randomPipeY:', randomPipeY);
 
     let gif = {
         img : gifImg,
